@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="espacio">Ofertas</ion-title>
+    <ion-buttons slot="end">
+    <ion-icon class="espacio2" (click)="closeModal()" name="close-circle"></ion-icon>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+  <ion-card>
+    <ion-item class="margin1">
+      <ion-icon name="person-circle-outline" class="fotoper arr"></ion-icon>
+      <ion-icon name="person-circle-outline" class="fotoper baj" slot="end"></ion-icon>
+      <ion-label>
+      <div class="space1" *ngFor="let oferta of ofertas">
+        {{oferta.rol1}}
+        <br>
+        {{oferta.name1}}
+      </div>
+      <br>
+      <div class="space2" *ngFor="let oferta of ofertas">
+        {{oferta.rol2}}
+        <br>
+        {{oferta.name2}}
+      </div>
+      <br>
+      </ion-label>
+      </ion-item>
+      <ion-item>
+      <ion-label>
+      <div class="space3" *ngFor="let oferta of ofertas">
+        <div class="space4">
+        {{oferta.from}}
+        <br>
+        {{oferta.desde}}
+        </div>
+        <div class="space4">
+        {{oferta.to}}
+        <br>
+        {{oferta.hasta}}
+        </div>
+      </div>
+      </ion-label>
+      </ion-item>
+  <ion-card-content class="mejorada">
+    <div *ngFor="let oferta of ofertas">
+        {{oferta.final}}
+      </div>
+  </ion-card-content>
+</ion-card>
