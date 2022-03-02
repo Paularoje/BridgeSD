@@ -25,16 +25,6 @@ const routes: Routes = [
     canActivate: [NoIngresadoGuard]
   },
   {
-    path: 'inicio-vendedor',
-    loadChildren: () => import('./inicio-vendedor/inicio-vendedor.module').then( m => m.InicioVendedorPageModule),
-    canActivate: [IngresadoGuard]
-  },
-  {
-    path: 'inicio-transportador',
-    loadChildren: () => import('./inicio-transportador/inicio-transportador.module').then( m => m.InicioTransportadorPageModule),
-    canActivate: [IngresadoGuard]
-  },
-  {
     path: 'menu',
     loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule),
     canActivate: [IngresadoGuard]
@@ -54,7 +44,16 @@ const routes: Routes = [
   },
   {
     path: 'ofertas',
-    loadChildren: () => import('./ofertas/ofertas.module').then( m => m.OfertasPageModule),
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./ofertas/ofertas.module').then( m => m.OfertasPageModule),
+      },
+      {
+        path: ':productoId',
+        loadChildren: () => import('./ofertas/detalle-oferta/detalle-oferta.module').then( m => m.DetalleOfertaPageModule)
+      }
+    ],
     canActivate: [IngresadoGuard]
   },
   {

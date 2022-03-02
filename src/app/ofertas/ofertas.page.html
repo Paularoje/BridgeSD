@@ -2,25 +2,33 @@
   <ion-toolbar>
     <ion-title class="espacio">Ofertas</ion-title>
     <ion-buttons slot="end">
-    <ion-icon class="espacio2" (click)="closeModal()" name="close-circle"></ion-icon>
+    <ion-icon class="espacio2" [routerLink]="['/inicio-transportador']"  name="close-circle"></ion-icon>
   </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-  <ion-card>
+  <ion-card *ngFor="let oferta of ofertas" [routerLink]="['/ofertas', oferta.id]">
+    <ion-img [src]="oferta.imagePro">
+        </ion-img>
     <ion-item class="margin1">
-      <ion-icon name="person-circle-outline" class="fotoper arr"></ion-icon>
-      <ion-icon name="person-circle-outline" class="fotoper baj" slot="end"></ion-icon>
+      <ion-avatar name="person-circle-outline" class="imgfot arr">
+        <ion-img [src]="oferta.imageUrl1">
+        </ion-img>
+      </ion-avatar>
+      <ion-avatar name="person-circle-outline" class="imgfot baj" slot="end">
+        <ion-img [src]="oferta.imageUrl2">
+        </ion-img>
+      </ion-avatar>
       <ion-label>
-      <div class="space1" *ngFor="let oferta of ofertas">
+      <div class="space1">
         {{oferta.rol1}}
         <br>
         {{oferta.name1}}
       </div>
       <br>
-      <div class="space2" *ngFor="let oferta of ofertas">
+      <div class="space2">
         {{oferta.rol2}}
         <br>
         {{oferta.name2}}
@@ -30,7 +38,7 @@
       </ion-item>
       <ion-item>
       <ion-label>
-      <div class="space3" *ngFor="let oferta of ofertas">
+      <div class="space3">
         <div class="space4">
         {{oferta.from}}
         <br>
@@ -45,8 +53,11 @@
       </ion-label>
       </ion-item>
   <ion-card-content class="mejorada">
-    <div *ngFor="let oferta of ofertas">
-        {{oferta.final}}
+    <div>
+        {{oferta.final}} {{oferta.producto}}
       </div>
   </ion-card-content>
 </ion-card>
+
+</ion-list>
+</ion-content>

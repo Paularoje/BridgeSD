@@ -15,15 +15,23 @@ const routes: Routes = [
     children: [
       {
         path: 'informacion-personal',
-        loadChildren: () => import('../informacion-personal/informacion-personal.module').then( m => m.InformacionPersonalPageModule)
+        loadChildren: () => import('../informacion-personal/informacion-personal.module').then( m => m.InformacionPersonalPageModule),
+        canActivate: [IngresadoGuard]
       },
       {
         path: 'inicio-comprador',
-        loadChildren: () => import('../inicio-comprador/inicio-comprador.module').then(m => m.InicioCompradorPageModule)
+        loadChildren: () => import('../inicio-comprador/inicio-comprador.module').then(m => m.InicioCompradorPageModule),
+        canActivate: [IngresadoGuard]
       },
       {
         path: 'inicio-transportador',
-        loadChildren: () => import('../inicio-transportador/inicio-transportador.module').then( m => m.InicioTransportadorPageModule)
+        loadChildren: () => import('../inicio-transportador/inicio-transportador.module').then( m => m.InicioTransportadorPageModule),
+        canActivate: [IngresadoGuard]
+      },
+      {
+        path: 'inicio-vendedor',
+        loadChildren: () => import('../inicio-vendedor/inicio-vendedor.module').then( m => m.InicioVendedorPageModule),
+        canActivate: [IngresadoGuard]
       },
     ]
   }

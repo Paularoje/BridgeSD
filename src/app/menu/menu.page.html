@@ -20,6 +20,22 @@
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle auto-hide="false">
+          <ion-accordion-group>
+            <ion-accordion>
+              <ion-item slot="header">
+                <ion-icon slot="start" name="people-outline"></ion-icon>
+                <ion-label>Cambiar de perfil</ion-label>
+              </ion-item>
+              <ion-list slot="content" *ngFor="let user of changeUser; let j=index" style="padding:0px;">
+                <ion-item style="margin-left: 60px;" (click)="cambiarIndiceSeleccionado2(j, user)" routerDirection="root" [routerLink]="[rutaChangeUser[j]]"
+                  lines="none">
+                  <ion-label color="primary">{{user}}</ion-label>
+                </ion-item>
+              </ion-list>
+            </ion-accordion>
+          </ion-accordion-group>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false">
           <ion-item (click)="salir()" routerDirection="root" lines="none" detail="false">
             <ion-icon slot="start" [name]="'exit-outline'"></ion-icon>
             <ion-label>Salir</ion-label>
