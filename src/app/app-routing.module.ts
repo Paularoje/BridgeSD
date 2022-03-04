@@ -40,7 +40,13 @@ const routes: Routes = [
         path: ':productoId',
         loadChildren: () => import('./productos/detalle-producto/detalle-producto.module').then(m => m.DetalleProductoPageModule)
       }
-    ]
+    ],
+    canActivate: [IngresadoGuard]
+  },
+  {
+    path: 'agregar-producto',
+    loadChildren: () => import('./productos/agregar-producto/agregar-producto.module').then( m => m.AgregarProductoPageModule),
+    canActivate: [IngresadoGuard]
   },
   {
     path: 'ofertas',
@@ -64,6 +70,16 @@ const routes: Routes = [
   {
     path: 'informacion-personal',
     loadChildren: () => import('./informacion-personal/informacion-personal.module').then( m => m.InformacionPersonalPageModule),
+    canActivate: [IngresadoGuard]
+  },
+  {
+    path: 'solicitudes-vendedor',
+    loadChildren: () => import('./solicitudes-vendedor/solicitudes-vendedor.module').then( m => m.SolicitudesVendedorPageModule),
+    canActivate: [IngresadoGuard]
+  },
+  {
+    path: 'despachos-vendedor',
+    loadChildren: () => import('./despachos-vendedor/despachos-vendedor.module').then( m => m.DespachosVendedorPageModule),
     canActivate: [IngresadoGuard]
   },
 ];

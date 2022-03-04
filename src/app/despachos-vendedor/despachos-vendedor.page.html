@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button><ion-icon name="person-circle-outline"></ion-icon></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="espacio5">Entregas</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div>
+    <ion-searchbar debounce="100" style="background-color:rgb(118, 189, 118)"></ion-searchbar>
+  </div>
+  <div class="row1">
+    <h3 style="font-family: 'Arial';font-size:light; font-style: oblique;">No tienes entregas aún</h3>
+    <h3 style="font-family: 'Arial';font-size:light; font-style: oblique;">Acepta solicitudes</h3>
+  </div>
+  <div>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom" color="success">
+        <ion-tab-button tab="solicitudes" [routerLink]="['/solicitudes-vendedor']">
+          <ion-icon name="reader"></ion-icon>
+          <ion-label>solicitudes</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="inicio"[routerLink]="['/menu/inicio-vendedor']">
+          <ion-icon name="home"></ion-icon>
+          <ion-label>Inicio</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="entregas" style="background-color:rgb(118, 189, 118)">
+          <ion-icon name="calendar"></ion-icon>
+          <ion-label>Entregas</ion-label>
+          <!-- <ion-badge>6</ion-badge> -->
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </div>
+</ion-content>
+

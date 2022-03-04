@@ -55,13 +55,13 @@ export class LoginPage implements OnInit {
         console.log('Ingresado');
         localStorage.setItem('ingresado','true');
         if((usuario.tipoUser === 'vendedor')){
-          this.navCtrl.navigateRoot('inicio-vendedor');
+          this.navCtrl.navigateRoot('menu/inicio-vendedor');
         }
         if((usuario.tipoUser === 'comprador')){
           this.navCtrl.navigateRoot('menu/inicio-comprador');
         }
         if((usuario.tipoUser === 'transportador')){
-          this.navCtrl.navigateRoot('inicio-transportador');
+          this.navCtrl.navigateRoot('menu/inicio-transportador');
         }
     }else{
       const alert = await this.alertController.create({

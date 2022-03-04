@@ -31,8 +31,13 @@ export class MenuPage implements OnInit {
         },
         {
           titulo: 'Información personal',
-          url: '/menu/informacion-personal',
+          //url: '/menu/informacion-personal',
           icono: 'person'
+        },
+        {
+          titulo: 'Soporte',
+          //url: '/menu/informacion-personal',
+          icono: 'settings'
         },
       ];
     };
@@ -47,8 +52,13 @@ export class MenuPage implements OnInit {
         },
         {
           titulo: 'Información personal',
-          url: '/menu/informacion-personal',
+          //url: '/menu/informacion-personal',
           icono: 'person'
+        },
+        {
+          titulo: 'Soporte',
+          //url: '/menu/informacion-personal',
+          icono: 'settings'
         },
       ];
     };
@@ -63,8 +73,13 @@ export class MenuPage implements OnInit {
         },
         {
           titulo: 'Información personal',
-          url: '/menu/informacion-personal',
+          //url: '/menu/informacion-personal',
           icono: 'person'
+        },
+        {
+          titulo: 'Soporte',
+          //url: '/menu/informacion-personal',
+          icono: 'settings'
         },
       ];
     };

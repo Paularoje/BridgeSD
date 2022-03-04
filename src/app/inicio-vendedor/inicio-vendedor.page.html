@@ -3,19 +3,45 @@
     <ion-buttons slot="start">
       <ion-menu-button><ion-icon name="person-circle-outline"></ion-icon></ion-menu-button>
     </ion-buttons>
-    <ion-title>Inicio Vendedor</ion-title>
+    <ion-title class="espacio5">Mis productos</ion-title>
+    <img  id="esquina_t_r" src = "assets/img/lechuga_agregar.svg" [routerLink]="['/productos/agregar-producto']"/>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-content>
-    <ion-card *ngIf="entradaActual">
-      <ion-card-content>
-        <p id="fechaTexto">{{entradaActual.fechaTexto}}</p>
-        <ion-textarea rows="15" [(ngModel)]="entradaActual.texto">
+  <div>
+    <ion-searchbar [formControl]="searchField" debounce="100" style="background-color:rgb(118, 189, 118)"></ion-searchbar>
 
-        </ion-textarea>
-        <ion-button expand="block" (click)="guardar(entradaActual)">Guardar</ion-button>
-      </ion-card-content>
-    </ion-card>
-  </ion-content>
+    <ion-list lines="none">
+      <ion-item *ngFor="let productoItem of productoList$ | async">
+        <ion-label>{{ productoItem.name }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div class="row1">
+    <h3 style="font-family: 'Arial';font-size:light; font-style: oblique;">No tienes productos aún</h3>
+    <h3 style="font-family: 'Arial';font-size:light; font-style: oblique;">Agrega uno</h3>
+    <img  id="img_cent_trans" src = "assets/img/lechuga_agregar.svg"/>
+  </div>
+  <div>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom" color="success">
+        <ion-tab-button tab="solicitudes" [routerLink]="['/solicitudes-vendedor']">
+          <ion-icon name="reader"></ion-icon>
+          <ion-label>solicitudes</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="inicio" style="background-color:rgb(118, 189, 118)">
+          <ion-icon name="home"></ion-icon>
+          <ion-label>Inicio</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="entregas" [routerLink]="['/despachos-vendedor']">
+          <ion-icon name="calendar"></ion-icon>
+          <ion-label>Entregas</ion-label>
+          <!-- <ion-badge>6</ion-badge> -->
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </div>
 </ion-content>
+

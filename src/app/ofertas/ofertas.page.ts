@@ -12,7 +12,7 @@ import { OfertaService } from './oferta.service';
 })
 export class OfertasPage implements OnInit {
 
-  ofertas = []
+  ofertas = [];
 
   constructor( public router: Router, private menu: MenuController, public modalController: ModalController,private ofertaService: OfertaService) { }
 

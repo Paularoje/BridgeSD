@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
-import * as moment from 'moment';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-inicio-vendedor',
@@ -8,89 +8,61 @@ import * as moment from 'moment';
   styleUrls: ['./inicio-vendedor.page.scss'],
 })
 export class InicioVendedorPage implements OnInit {
+  public searchField: FormControl;
+  public productoList$: Observable<ProductoItem[]>;
 
-  fecha: string;
-
-  entradas: Array<{
-    fecha: string;
-    fechaTexto: string;
-    texto: string;
-  }>;
-
-  entradaActual: {
-    fecha: string;
-    fechaTexto: string;
-    texto: string;
-  };
-
-  constructor(public toastController: ToastController) {
-    moment.locale('es-col');
-    this.fecha = moment().format();
-    this.cargarEntradas();
+  constructor() {
+    this.searchField = new FormControl('');
   }
 
-  cargarEntradas(){
-    const fecha = moment(this.fecha).format('DD-MM-YY');
-
-    this.entradas = JSON.parse(localStorage.getItem('entradas'));
-    if(this.entradas){
-      const entradaActual = this.entradas.find((elemento)=>elemento.fecha === fecha);
-      if(entradaActual){
-        this.entradaActual = entradaActual;
-      }else{
-        this.inicializarNuevaEntrada();
-      }
-    }else{
-      this.inicializarNuevaEntrada();
-    }
-  }
-
-  inicializarNuevaEntrada(){
-    const fecha = moment(this.fecha).format('DD-MM-YY');
-    const dia = moment(this.fecha).format('DD');
-    const mes = moment(this.fecha).format('MMMM');
-    const year = moment(this.fecha).format('YYYY');
-
-    this.entradaActual={
-      fechaTexto: dia + ' de ' + mes + ' del ' + year,
-      fecha: this.fecha,
-      texto: ''
-    };
-  }
-
-  async guardar(entradaActual: {
-    fecha: string;
-    fechaTexto: string;
-    texto: string;
-  }){
-    const fecha = moment(this.fecha).format('DD-MM-YY');
-
-    if(this.entradas){
-      const item = this.entradas.find((elemento)=>elemento.fecha === fecha);
-
-      if(item){
-        localStorage.setItem('entradas', JSON.stringify(this.entradas));
-      }else{
-        this.guardarItem(entradaActual);
-      }
-    }else{
-      this.entradas = [];
-      this.guardarItem(entradaActual);
-    }
-
-    const toast = await this.toastController.create({
-      message: 'Datos guardados',
-      duration: 2000
-    });
-
-    toast.present();
-  }
-
-  guardarItem(entrada: {fecha: string; fechaTexto: string; texto: string}){
-    this.entradas.push(entrada);
-    localStorage.setItem('entradas', JSON.stringify(this.entradas));
-  }
   ngOnInit() {
   }
 
 }
+
+interface ProductoItem {
+  name: string;
+}
+
+// import { Component, OnInit } from '@angular/core';
+// import { FormControl } from '@angular/forms';
+// import { Firestore, collectionData, query, collection } from '@angular/fire/firestore';
+// import { combineLatest, Observable } from 'rxjs';
+// import { map, startWith } from 'rxjs/operators';
+
+// @Component({
+//   selector: 'app-inicio-vendedor',
+//   templateUrl: './inicio-vendedor.page.html',
+//   styleUrls: ['./inicio-vendedor.page.scss'],
+// })
+
+// export class InicioVendedorPage implements OnInit {
+//   public searchField: FormControl;
+//   public productoList$: Observable<ProductoItem[]>;
+
+//   constructor(private readonly firestore: Firestore) {
+//     this.searchField = new FormControl('');
+//   }
+
+//   async ngOnInit() {
+//     const searchTerm$ = this.searchField.valueChanges.pipe(
+//       startWith(this.searchField.value)
+//     );
+
+//     const productoList$ = collectionData(query(collection(this.firestore, 'productoList')));
+
+//     this.productoList$ = combineLatest([productoList$, searchTerm$]).pipe(
+//       map(([productoList, searchTerm]) =>
+//         productoList.filter(
+//           (productoItem) =>
+//             searchTerm === '' ||
+//             productoItem.name.toLowerCase().includes(searchTerm.toLowerCase())
+//         )
+//       )
+//     );
+//   }
+// }
+
+// interface ProductoItem {
+//   name: string;
+// }
