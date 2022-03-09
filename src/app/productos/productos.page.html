@@ -1,21 +1,27 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Productos</ion-title>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button><ion-icon name="person-circle-outline"></ion-icon></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="espacio5">Mis productos</ion-title>
+    <img  id="esquina_t_r" src = "assets/img/lechuga_agregar.svg"/>
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen>
+<ion-content>
+  <ion-searchbar debounce="100" style="Background:#AAD482;" placeholder="Buscar..."></ion-searchbar>
+
   <ion-list>
     <ion-item *ngFor="let producto of productos" [routerLink]="['/productos', producto.id]">
-      <ion-card>
-        <ion-card-header>
-          <ion-card-subtitle>{{producto.nameVend}}</ion-card-subtitle>
-          <ion-card-title>{{producto.title}}</ion-card-title>
-        <ion-img [src]="producto.imageURL"></ion-img>
+      <ion-card class="card">
+        <ion-card-header class="contCard">
+          <ion-img [src]="producto.imageURL" class="container"></ion-img>
         </ion-card-header>
         <ion-card-content>
-          <p>Cantidad disponible: {{producto.cantidad}} {{producto.unidadesRef}}</p>
-          <p>Precio: {{producto.precio}}</p>
+        <div id="columnas">
+          <li>{{producto.title}} {{producto.calificacion}} <ion-icon name="star"></ion-icon></li>
+          <li>Cantidad: {{producto.cantidad}} {{producto.unidadesRef}}</li>
+        </div>
         </ion-card-content>
       </ion-card>
     </ion-item>

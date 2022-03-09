@@ -9,12 +9,8 @@ const routes: Routes = [
     component: ProductosPage
   },
   {
-    path: 'detalle-producto',
-    loadChildren: () => import('./detalle-producto/detalle-producto.module').then( m => m.DetalleProductoPageModule)
-  },
-  {
-    path: 'agregar-producto',
-    loadChildren: () => import('./agregar-producto/agregar-producto.module').then( m => m.AgregarProductoPageModule)
+    path: 'producto-detail',
+    loadChildren: () => import('./producto-detail/producto-detail.module').then( m => m.ProductoDetailPageModule)
   }
 ];
 

@@ -4,12 +4,12 @@
       <ion-list>
         <ion-item>
           <ion-label position="floating" color="primary" style="font-family: 'Arial';font-size:large;">Correo<ion-text color="danger">*</ion-text></ion-label>
-          <ion-input required type="email" formControlName="email" style="font-family: 'Arial';font-size:large;"></ion-input>
+          <ion-input class="input" required type="email" formControlName="email" style="font-family: 'Arial';font-size:large;"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label  position="floating" color="primary" style="font-family: 'Arial';font-size:large;">Contraseña<ion-text color="danger">*</ion-text></ion-label>
-            <ion-input  #passwordEyeRegister  [type]="passwordTypeInput"  formControlName="password" clearOnEdit="false" style="font-family: 'Arial';font-size:large;"></ion-input>
+            <ion-input #passwordEyeRegister  [type]="passwordTypeInput"  formControlName="password" clearOnEdit="false" style="font-family: 'Arial';font-size:large;"></ion-input>
             <button  item-end  class="btn_eye_icon"  (click)="togglePasswordMode()">
                 <ion-icon  [name]="(passwordTypeInput === 'text')?'eye':'eye-off'"></ion-icon>
             </button>

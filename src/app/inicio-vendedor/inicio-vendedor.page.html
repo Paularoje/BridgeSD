@@ -4,12 +4,12 @@
       <ion-menu-button><ion-icon name="person-circle-outline"></ion-icon></ion-menu-button>
     </ion-buttons>
     <ion-title class="espacio5">Mis productos</ion-title>
-    <img  id="esquina_t_r" src = "assets/img/lechuga_agregar.svg" [routerLink]="['/productos/agregar-producto']"/>
+    <img  id="esquina_t_r" src = "assets/img/lechuga_agregar.svg"/>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <div>
-    <ion-searchbar [formControl]="searchField" debounce="100" style="background-color:rgb(118, 189, 118)"></ion-searchbar>
+    <ion-searchbar [formControl]="searchField" debounce="100" style="Background:#AAD482;" placeholder="Buscar..."></ion-searchbar>
 
     <ion-list lines="none">
       <ion-item *ngFor="let productoItem of productoList$ | async">

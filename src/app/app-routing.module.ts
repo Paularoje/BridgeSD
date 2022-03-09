@@ -6,7 +6,7 @@ import { NoIngresadoGuard } from './no-ingresado.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'productos',
     pathMatch: 'full'
   },
   {
@@ -27,25 +27,6 @@ const routes: Routes = [
   {
     path: 'menu',
     loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule),
-    canActivate: [IngresadoGuard]
-  },
-  {
-    path: 'productos',
-    children:  [
-      {
-        path: '',
-        loadChildren: () => import('./productos/productos.module').then( m => m.ProductosPageModule)
-      },
-      {
-        path: ':productoId',
-        loadChildren: () => import('./productos/detalle-producto/detalle-producto.module').then(m => m.DetalleProductoPageModule)
-      }
-    ],
-    canActivate: [IngresadoGuard]
-  },
-  {
-    path: 'agregar-producto',
-    loadChildren: () => import('./productos/agregar-producto/agregar-producto.module').then( m => m.AgregarProductoPageModule),
     canActivate: [IngresadoGuard]
   },
   {
@@ -82,6 +63,20 @@ const routes: Routes = [
     loadChildren: () => import('./despachos-vendedor/despachos-vendedor.module').then( m => m.DespachosVendedorPageModule),
     canActivate: [IngresadoGuard]
   },
+  {
+    path: 'productos',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./productos/productos.module').then( m => m.ProductosPageModule)
+      },
+      {
+        path: ':productoId',
+        loadChildren: () => import('./productos/producto-detail/producto-detail.module').then( m => m.ProductoDetailPageModule)
+      }
+    ],
+    canActivate: [IngresadoGuard]
+  }
 ];
 
 @NgModule({
