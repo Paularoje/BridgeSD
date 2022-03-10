@@ -1,16 +1,44 @@
 .fecha{
     text-align: center;
     font-weight: bold;
-    color: #6e1e1e;
+    color: #705C53;
     font-size: 18px;
-    margin-top: 10px;
-    margin-bottom: 0%;
+    margin: auto;
+}
+
+.detalle{
+    text-align: center;
+    font-weight: bold;
+    color: #705C53;
+    font-size: 18px;
+    margin-top: 0px;
+    padding-top: 8px;
+}
+
+.ruta{
+    text-align: center;
+    font-weight: bold;
+    color: #705C53;
+    font-size: 18px;
+    margin: auto;
+    padding-bottom: 8px;
+}
+
+.coti{
+    display: inline-block;
+    padding-top: 18px;
+    margin: auto;
+    color: #EDFFFF;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    padding-bottom: 18px;
 }
 
 .fecha2{
     text-align: center;
     font-weight: bold;
-    color: #6e1e1e;
+    color: #705C53;
     font-size: 18px;
     margin-top: 20px;
     padding-top: 10px;
@@ -26,28 +54,31 @@
 .ficha{
     text-align: center;
     font-weight: bold;
-    color: #6e1e1e;
-    font-size: 10px;
-    padding: 0%;
-    margin: 10px;
-    margin-bottom: 10px;
+    color: #705C53;
+    font-size: 13px;
+    padding-bottom: 5px;
+    margin: 0%;
 }
 
 .back1{
-    background-color: rgba(114, 32, 32, 0.198);
+    background-color: #8a604c41;
     height: 100px;
 }
 
 .back2{
-    background-color: rgba(114, 32, 32, 0.198);
+    background-color: #705C53;
     margin-top: 20px;
 }
 
 .back3{
-    background-color: rgba(114, 32, 32, 0.198);
+    background-color: #8a604c41;
     height: 120px;
 }
 
+.back4{
+    height: 22px;
+    background-color: #8a604c41;
+}
 
 .mitad{
     margin-left: 100px;
@@ -90,7 +121,7 @@
 
 .tunning3{
     margin: auto;
-    background-color: rgba(110, 30, 30, 0.575);
+    background-color: #A68E80;
     border-radius: 50px;
     width: 150px;
     text-align: center;
@@ -101,6 +132,74 @@
 
 .tunning4{
     margin: 0%;
-    padding-top: 25px;
+    padding-top: 18px;
 }
+
+.tunning5{
+    margin: auto;
+    background-color: white;
+    border-radius: 50px;
+    width: 230px;
+    text-align: center;
+}
+
+.tunning6{
+    margin-right: 30px;
+    width: 100px;
+}
+
+.tunning7{
+    background-color: #A68E80;
+    border-radius: 50px;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.enviar{
+    height: 55px;
+    width: 100px;
+    color: black;
+}
+
+.toolbar-container{
+    --border-color: #8A604C;
+}
+
+.k-grid .k-toolbar {
+        background-color: #8A604C;
+    }
+
+.fondotitle{
+    color: #EBF0EC;
+}
+
+.ultimo{
+    background-color: #FF900D;
+    border-radius: 10px;
+}
+
+.salto{
+    padding-bottom: 20px;
+}
+
+.info{
+    text-align: center;
+    font-size: 13px;
+}
+
+.texto{
+    font-size: 13px;
+    font-weight: bold;
+    color: black;
+    margin: auto;
+    text-align: center;
+}
+
+.texto2{
+    color: black;
+    margin: auto;
+    text-align: center;
+}
+
 

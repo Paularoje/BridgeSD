@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="fondohead">
     <ion-buttons slot="start">
       <ion-back-button defualHref="/oferta"></ion-back-button>
     </ion-buttons>
-    <ion-title class="centrar">DETALLES</ion-title>
+    <ion-title class="centrar fondotitle">DETALLES</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -23,29 +23,36 @@
     </div>
   </div>
 
-  <div>
-    <h1 class="fecha">Fecha</h1>
+  <div class="space2">
+
+    <div class="space1">
+      <h1 class="fecha">Fecha</h1>
+    </div>
+
+    <div class="space1 por">
+      <div class="space2 tunning2">
+            <h2 class="ficha">Dia</h2>
+            <div class="tunning3">
+              {{oferta.dia}}
+            </div>
+      </div>
+
+      <div class="space2 tunning2">
+            <h2 class="ficha tunning4">A las</h2>
+      </div>
+
+      <div class="space2 tunning2">
+            <h2 class="ficha">Hora</h2>
+            <div class="tunning3">
+              {{oferta.hora}}
+            </div>
+      </div>
+    </div>
+
   </div>
 
-  <div class="space1 por">
-    <div class="space2 tunning2">
-          <h2 class="ficha">Dia</h2>
-          <div class="tunning3">
-            {{oferta.dia}}
-          </div>
-    </div>
-
-    <div class="space2 tunning2">
-          <h2 class="ficha tunning4">A las</h2>
-    </div>
-
-    <div class="space2 tunning2">
-          <h2 class="ficha">Hora</h2>
-          <div class="tunning3">
-            {{oferta.hora}}
-          </div>
-    </div>
-
+  <div class="back4">
+    <h1 class="detalle">Detalles</h1>
   </div>
 
   <div class="space1 back3">
@@ -64,6 +71,7 @@
           {{oferta.name1}}
       </div>
     </div>
+    
 
     <div class="space2 tunning2">
       <div class="space1 tunning2">
@@ -79,7 +87,57 @@
           {{oferta.name2}}
       </div>
     </div>
+  </div>
+
+  <div class="space2">
+
+    <div class="space1">
+      <h1 class="ruta">Ruta</h1>
+    </div>
+
+    <div class="space2 tunning7">
+      <div class="space1">
+      <h1 class="texto">Desde:</h1>
+      </div>
+      <div class="space1 texto2">
+        {{oferta.desde}}
+      </div>
+    </div>
+
+    <div class="space2 tunning7">
+      <div class="space1">
+      <h1 class="texto">Hasta:</h1>
+      </div>
+      <div class="space1 texto2">
+        {{oferta.hasta}}
+      </div>
+    </div>
 
   </div>
+
+  <div class="ultimo space2">
+
+    <div class="space1">
+      <h1 class="coti">Cotización</h1>
+    </div>
+
+    <div class="space1">
+      <div class="space2 tunning5">
+        <ion-input placeholder="Valor del servicio"></ion-input>
+      </div>
+
+      <div class="space2 tunning6">
+        <ion-button class="enviar" color="light" shape="round">ENVIAR</ion-button>
+      </div>
+    </div>
+
+    <div class="space1 salto">
+      <h3 class="info">Establece el valor del servicio teniendo en cuenta la distancia desde tu punto
+        de partida hasta la ubicación final.
+      </h3>
+    </div>
+
+  </div>
+
 
 </ion-content>

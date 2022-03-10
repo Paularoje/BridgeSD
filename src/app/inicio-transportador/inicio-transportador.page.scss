@@ -114,13 +114,13 @@
 }
 
 .imgfot{
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
 }
 
 .imgfot1{
-  width: 88px;
-  height: 80px;
+  width: 75px;
+  height: 70px;
 }
 
 .margin1{
@@ -138,4 +138,22 @@
 
 .final{
   margin-top: 400px;
+}
+
+.final2{
+  margin-top: 390px;
+}
+
+.mover{
+  display: inline-block;
+}
+
+.space1{
+    display: flex;
+    flex-direction: row;
+}
+
+.space2{
+    display: flex;
+    flex-direction: column;
 }

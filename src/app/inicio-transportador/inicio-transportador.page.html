@@ -8,12 +8,13 @@
 </ion-header>
 
 <ion-content>
-  <ion-fab vertical="bottom" horizontal="center" [routerLink]="['/ofertas']" slot="fixed">
+
+  <img src="assets/img/mapa.svg">
+  <ion-fab class="final2" horizontal="center" [routerLink]="['/ofertas']" slot="fixed">
     <ion-fab-button class="boton-up1">
       <ion-icon class="boton-up" name="arrow-up-circle"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-
 
   <ion-list>
   <ion-card class="final" *ngFor="let oferta of ofertas" [routerLink]="['/ofertas', oferta.id]">
@@ -65,5 +66,33 @@
 </ion-card>
 
 </ion-list>
+
+<div>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom" color="success">
+
+        <ion-tab-button tab="inicio" style="background-color:rgb(118, 189, 118)">
+          <ion-icon name="home"></ion-icon>
+          <ion-label>Inicio</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="en_espera" [routerLink]="['/solicitudes-vendedor']">
+          <ion-icon name="hourglass-outline"></ion-icon>
+          <ion-label>En espera</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="programados" [routerLink]="['/despachos-vendedor']">
+          <ion-icon name="calendar-outline"></ion-icon>
+          <ion-label>Programados</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="entregas" [routerLink]="['/despachos-vendedor']">
+          <ion-icon name="checkmark-done-outline"></ion-icon>
+          <ion-label>Entregas</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </div>
+
 
 </ion-content>

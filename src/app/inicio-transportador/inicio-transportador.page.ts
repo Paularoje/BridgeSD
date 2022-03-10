@@ -24,7 +24,7 @@ export class InicioTransportadorPage implements OnInit {
       rol1 : 'Vendedor:',
       name1 : 'Jairo Gomez',
       rol2 : 'Comprador:',
-      name2 : 'Marta Lucia Peña',
+      name2 : 'Marta Peña',
       from : 'Desde:',
       desde : 'Vereda Rio Grande, Santander',
       to : 'Hasta:',
