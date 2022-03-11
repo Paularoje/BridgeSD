@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: SolicitudesVendedorPage
+  },
+  {
+    path: 'solicitud-detail',
+    loadChildren: () => import('./solicitud-detail/solicitud-detail.module').then( m => m.SolicitudDetailPageModule)
   }
 ];
 

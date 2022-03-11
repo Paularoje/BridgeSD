@@ -10,6 +10,7 @@ export class ProductosPage implements OnInit {
   autocomplete: { input: string };
 
   productos=[];
+  calific=[];
 
   constructor(private productoService: ProductosService) { }
 
@@ -19,6 +20,16 @@ export class ProductosPage implements OnInit {
 
   ngOnInit() {
     this.productos=this.productoService.getProductos();
+    this.calificacion();
   }
-
+  ionViewWillEnter(){
+    this.productos=this.productoService.getProductos();
+    this.calificacion();
+  }
+  calificacion(){
+    const prod=this.productoService.getProductos();
+    for (let i=0; i<prod.length; i++) {
+      this.calific[i]=this.productoService.getCalificacion(prod[i].id);
+    }
+  }
 }

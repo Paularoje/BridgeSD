@@ -1,4 +1,3 @@
-
 <ion-split-pane contentId="main">
   <ion-menu side="start" menuId="first" contentId="main">
     <ion-header>
@@ -46,4 +45,64 @@
   </ion-menu>
 
   <ion-router-outlet id="main" main></ion-router-outlet>
+
+  <ion-tabs *ngIf="infoUser.tipoUser==='vendedor'" id="tabVend">
+    <ion-tab-bar slot="bottom" color="success">
+      <ion-tab-button tab="solicitudes" [routerLink]="['/menu/solicitudes-vendedor']">
+        <ion-icon name="reader"></ion-icon>
+        <ion-label>solicitudes</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="inicio" [routerLink]="['/menu/productos']">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Inicio</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="entregas" [routerLink]="['/menu/despachos-vendedor']">
+        <ion-icon name="calendar"></ion-icon>
+        <ion-label>Entregas</ion-label>
+        <!-- <ion-badge>6</ion-badge> -->
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
+  <ion-tabs *ngIf="infoUser.tipoUser==='transportador'">
+    <ion-tab-bar slot="bottom" color="success">
+      <ion-tab-button tab="solicitudes">
+        <ion-icon name="reader"></ion-icon>
+        <ion-label>solicitudes</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="inicio">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Inicio</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="entregas">
+        <ion-icon name="calendar"></ion-icon>
+        <ion-label>Entregas</ion-label>
+        <!-- <ion-badge>6</ion-badge> -->
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
+  <ion-tabs *ngIf="infoUser.tipoUser==='comprador'">
+    <ion-tab-bar slot="bottom" color="success">
+      <ion-tab-button tab="solicitudes">
+        <ion-icon name="reader"></ion-icon>
+        <ion-label>solicitudes</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="inicio">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Inicio</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="entregas" [routerLink]="['/menu/despachos-vendedor']">
+        <ion-icon name="calendar"></ion-icon>
+        <ion-label>Entregas</ion-label>
+        <!-- <ion-badge>6</ion-badge> -->
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
 </ion-split-pane>

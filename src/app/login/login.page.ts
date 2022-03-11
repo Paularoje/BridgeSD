@@ -55,7 +55,7 @@ export class LoginPage implements OnInit {
         console.log('Ingresado');
         localStorage.setItem('ingresado','true');
         if((usuario.tipoUser === 'vendedor')){
-          this.navCtrl.navigateRoot('menu/inicio-vendedor');
+          this.navCtrl.navigateRoot('menu/productos');
         }
         if((usuario.tipoUser === 'comprador')){
           this.navCtrl.navigateRoot('menu/inicio-comprador');

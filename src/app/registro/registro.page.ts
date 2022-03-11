@@ -70,7 +70,7 @@ export class RegistroPage implements OnInit {
         this.navCtrl.navigateRoot('menu/inicio-transportador');
       }
       if(this.formularioRegistro.value.tipoUser === 'vendedor'){
-        this.navCtrl.navigateRoot('menu/inicio-vendedor');
+        this.navCtrl.navigateRoot('menu/productos');
       }
       localStorage.setItem('ingresado','true');
       const alert = await this.alertController.create({

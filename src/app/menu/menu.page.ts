@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AlertController, NavController, IonAccordionGroup } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.page.html',
   styleUrls: ['./menu.page.scss'],
 })
+
 export class MenuPage implements OnInit {
   @ViewChild(IonAccordionGroup, { static: true }) accordionGroup: IonAccordionGroup;
 
@@ -22,7 +24,7 @@ export class MenuPage implements OnInit {
   ngOnInit() {
     if(this.infoUser.tipoUser === 'comprador'){
       this.changeUser=['transportador', 'vendedor'];
-      this.rutaChangeUser =['/menu/inicio-transportador', '/menu/inicio-vendedor'];
+      this.rutaChangeUser =['/menu/inicio-transportador', '/menu/productos'];
       this.paginas=[
         {
           titulo: 'Inicio comprador',
@@ -31,19 +33,18 @@ export class MenuPage implements OnInit {
         },
         {
           titulo: 'Información personal',
-          //url: '/menu/informacion-personal',
+          url: '/menu/informacion-personal',
           icono: 'person'
         },
         {
           titulo: 'Soporte',
-          //url: '/menu/informacion-personal',
           icono: 'settings'
         },
       ];
     };
     if(this.infoUser.tipoUser === 'transportador'){
       this.changeUser=['comprador', 'vendedor'];
-      this.rutaChangeUser =['/menu/inicio-comprador', '/menu/inicio-vendedor'];
+      this.rutaChangeUser =['/menu/inicio-comprador', '/menu/productos'];
       this.paginas=[
         {
           titulo: 'Inicio transportador',
@@ -52,12 +53,11 @@ export class MenuPage implements OnInit {
         },
         {
           titulo: 'Información personal',
-          //url: '/menu/informacion-personal',
+          url: '/menu/informacion-personal',
           icono: 'person'
         },
         {
           titulo: 'Soporte',
-          //url: '/menu/informacion-personal',
           icono: 'settings'
         },
       ];
@@ -68,17 +68,16 @@ export class MenuPage implements OnInit {
       this.paginas=[
         {
           titulo: 'Inicio vendedor',
-          url: '/menu/inicio-vendedor',
+          url: '/menu/productos',
           icono:'home'
         },
         {
           titulo: 'Información personal',
-          //url: '/menu/informacion-personal',
+          url: '/menu/informacion-personal',
           icono: 'person'
         },
         {
           titulo: 'Soporte',
-          //url: '/menu/informacion-personal',
           icono: 'settings'
         },
       ];
@@ -120,5 +119,15 @@ export class MenuPage implements OnInit {
 
   closeAccordion() {
     this.accordionGroup.value = undefined;
+  }
+
+  public hideTabs() {
+    const tabBar = document.getElementById('myTabBar');
+    if (tabBar !== null && tabBar.style.display !== 'none') {tabBar.style.display = 'none';}
+  }
+
+  public showTabs() {
+    const tabBar = document.getElementById('myTabBar');
+    if (tabBar !== null && tabBar.style.display !== 'flex') {tabBar.style.display = 'flex';}
   }
 }

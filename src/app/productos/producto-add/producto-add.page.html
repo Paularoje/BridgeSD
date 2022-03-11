@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu/productos"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="espacio5">Añadir poducto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="card">
+    <ion-col style="margin-top: 20px;">
+      <ion-label class="texto1">Producto:</ion-label>
+      <ion-item color="#e0dcd7" lines="none">
+        <ion-select type="text" class="input" style="width:100%;" placeholder="Seleccione un producto" #title>
+          <ion-select-option value="Cebolla cabezona">Cebolla cabezona</ion-select-option>
+          <ion-select-option value="Cebolla larga">Cebolla larga</ion-select-option>
+          <ion-select-option value="Mandarina criolla">Mandarina criolla</ion-select-option>
+          <ion-select-option value="Mandarina reina">Mandarina reina</ion-select-option>
+          <ion-select-option value="Naranja valencia">Naranja valencia</ion-select-option>
+          <ion-select-option value="Naranja tangelo">Naranja tangelo</ion-select-option>
+          <ion-select-option value="Papa pastusa">Papa pastusa</ion-select-option>
+          <ion-select-option value="Papa criolla">Papa criolla</ion-select-option>
+          <ion-select-option value="Yuca">Yuca</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-label class="texto1">Imagen:</ion-label>
+      <ion-input class="input1" type="text" placeholder="http:://imagewebsite.com" #imageURL></ion-input>
+      <ion-label class="texto1">Descripción:</ion-label>
+      <ion-textarea class="input1" placeholder="Agregar descripción" #descripcion></ion-textarea>
+      <ion-label class="texto1">Cantidad:</ion-label>
+      <ion-input class="input1" type="number" placeholder="25" #cantidad></ion-input>
+      <ion-item color="#e0dcd7" lines="none">
+        <ion-select type="text" class="input" style="width:100%;" placeholder="Seleccione las unidades de cantidad" #unidadesRef>
+          <ion-select-option value="Kilogramos">Kilogramos</ion-select-option>
+          <ion-select-option value="Canasta (11 kg cada una)">Canasta (11 kg cada una)</ion-select-option>
+          <ion-select-option value="Canasta (11 kg cada una)">Canasta (11 kg cada una)</ion-select-option>
+          <ion-select-option value="Bulto (50 kg cada uno)">Bulto (50 kg cada uno)</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-label class="texto1">Precio:</ion-label>
+      <ion-input class="input1" type="number" placeholder="1500" #precio></ion-input>
+
+      <div style="padding-top:50px; text-align: center;">
+        <ion-button color="secondary" (click)="saveNewProducto(title, imageURL, descripcion, cantidad, unidadesRef, precio)" style="font-family: 'Arial'; font-size:medium; width: 300px; height:50px;">GUARDAR</ion-button>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>

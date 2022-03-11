@@ -1,19 +1,24 @@
 <ion-header>
   <ion-toolbar color="success">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/productos"></ion-back-button>
+      <ion-back-button defaultHref="/menu/productos"></ion-back-button>
     </ion-buttons>
-    <ion-title>Visualizar poducto</ion-title>
+    <ion-title class="espacio5">Visualizar poducto</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="deleteProducto()">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-grid class="ion-no-padding">
     <ion-row>
-      <ion-col style="margin-top: 5px; margin-left: 20px; margin-bottom: 5px;">
-        {{producto.calificacion}} <ion-icon name="star"></ion-icon>
+      <ion-col style="margin-top: 5px; margin-left: 20px; margin-bottom: 5px; font-size: 21px;">
+        {{calific}} <ion-icon name="star"></ion-icon>
       </ion-col>
-      <ion-col style="margin-top: 5px; margin-bottom: 5px;">
+      <ion-col style="margin-top: 5px; margin-bottom: 5px; font-size: 21px;">
         {{producto.title}}
       </ion-col>
     </ion-row>
@@ -24,20 +29,42 @@
     </ion-row>
     <ion-row class="info">
       <ion-col style="margin-left: 30px;">
-        <p style="color: #311C13;">Cantidad disponible:</p>
-        <p style="color: #311C13">{{producto.cantidad}} {{producto.unidadesRef}}</p>
+        <h3 class="textCatalago0">{{producto.descripcion}}</h3>
+        <h3 class="textCatalago1">Cantidad disponible:</h3>
+        <h3 class="textCatalago2">{{producto.cantidad}} {{producto.unidadesRef}}</h3>
+      </ion-col>
+      <ion-col>
+        <img style="margin-top: 30px; margin-left: 50px;" src = "assets/icon/bocina.png"/>
+        <h3 class="textCatalago0" style="text-align: center;">Pulsa para escuchar \n  descripción</h3>
       </ion-col>
     </ion-row>
     <ion-row class="info">
       <ion-col style="margin-left: 30px;">
-        <p style="color: #311C13">Precio:</p>
-        <p style="color: #311C13">${{producto.precio}}/{{producto.unidadesRef}}</p>
+        <h3 class="textCatalago1">Precio:</h3>
+        <h3 class="textCatalago2">${{producto.precio}}</h3>
+
+        <h3 class="textCatalago1">Precio sugerido:</h3>
+        <h3 class="textCatalago2">${{producto.precioSugerido}}</h3>
+      </ion-col>
+      <ion-col style="margin-top: 60px; text-align: center;">
+        <ion-button color="dark" [routerLink]="['/registro']">Editar</ion-button>
       </ion-col>
     </ion-row>
-    <ion-row class="info">
-      <ion-col style="margin-left: 30px;">
-        <p style="color: #311C13">Precio sugerido:</p>
-        <p style="color: #311C13">${{producto.precioSugerido}}/{{producto.unidadesRef}}</p>
+    <ion-row style="text-align: center;">
+      <ion-col>
+        <h2 class="textCatalago2" style="color: white; margin:auto; margin-top: 30px; margin-bottom: 20px;">Comentarios</h2>
+        <ion-textarea disabled style="margin: auto; width: 360px;">
+          <ion-list *ngIf="producto.comments && producto.comments.length>0; else noComments">
+            <ion-item *ngFor="let comment of producto.comments; let indexOfelement=index;">
+              {{comment}} <ion-icon slot="end" name="star"></ion-icon><ion-text slot="end">{{producto.starts[indexOfelement]}}</ion-text>
+            </ion-item>
+          </ion-list>
+       </ion-textarea>
+        <ng-template #noComments>
+          <ion-text>
+            <p class="ion-text-center">No hay comentarios aún</p>
+          </ion-text>
+        </ng-template>
       </ion-col>
     </ion-row>
   </ion-grid>

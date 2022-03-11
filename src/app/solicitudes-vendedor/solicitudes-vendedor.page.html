@@ -7,31 +7,43 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <div>
-    <ion-searchbar debounce="100" style="background-color:rgb(118, 189, 118)"></ion-searchbar>
-  </div>
-  <div class="row1">
-    <h3 style="font-family: 'Arial';font-size:light; font-style: oblique;">No tienes solicitudes aún</h3>
-  </div>
-  <div>
-    <ion-tabs>
-      <ion-tab-bar slot="bottom" color="success">
-        <ion-tab-button tab="solicitudes" style="background-color:rgb(118, 189, 118)">
-          <ion-icon name="reader"></ion-icon>
-          <ion-label>solicitudes</ion-label>
-        </ion-tab-button>
-
-        <ion-tab-button tab="inicio"[routerLink]="['/menu/inicio-vendedor']">
-          <ion-icon name="home"></ion-icon>
-          <ion-label>Inicio</ion-label>
-        </ion-tab-button>
-
-        <ion-tab-button tab="entregas" [routerLink]="['/despachos-vendedor']">
-          <ion-icon name="calendar"></ion-icon>
-          <ion-label>Entregas</ion-label>
-          <!-- <ion-badge>6</ion-badge> -->
-        </ion-tab-button>
-      </ion-tab-bar>
-    </ion-tabs>
-  </div>
+  <ion-list *ngIf="solicitudes && solicitudes.length>0; else noSolicitudes">
+    <ion-item *ngFor="let solicitud of solicitudes" [routerLink]="['/menu/solicitudes-vendedor', solicitud.id]">
+      <ion-card class="card">
+        <ion-card-header class="contCard">
+          <div id="columnas1">
+            <li><ion-icon name="person-circle-outline" style="zoom:2.0;"></ion-icon></li>
+            <li>{{solicitud.cliente}}</li>
+            <li slot="end"  style="text-align: 'center';">Quiere comprar</li>
+          </div>
+        </ion-card-header>
+        <ion-card-content>
+        <ion-grid>
+          <ion-row id="columnas">
+            <ion-col>
+              <li style="width:70%"><ion-img [src]="solicitud.imageURL" class="container"></ion-img></li>
+            </ion-col>
+            <ion-col>
+              <p style="text-align:'center'; margin-top: 50px;">{{solicitud.cantidad}}{{solicitud.unidadesRef}} </p>
+              <p style="text-align:'center'; margin-top: 20px;">{{solicitud.producto}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <li style="text-align: 'center';width:100%">{{solicitud.total}}</li>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+    <div style="text-align: 'center';">
+      <img src = "assets/img/Group 624.svg"/>
+      <img src = "assets/img/Group 625.svg"/>
+    </div>
+  </ion-list>
+  <ng-template #noSolicitudes>
+    <div>
+      <ion-searchbar debounce="100" style="background-color:rgb(118, 189, 118)"></ion-searchbar>
+    </div>
+    <div class="row1">
+      <h3 style="font-family: 'Arial';font-size:light; font-style: oblique;">No tienes solicitudes aún</h3>
+    </div>
+  </ng-template>
 </ion-content>

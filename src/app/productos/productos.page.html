@@ -4,26 +4,34 @@
       <ion-menu-button><ion-icon name="person-circle-outline"></ion-icon></ion-menu-button>
     </ion-buttons>
     <ion-title class="espacio5">Mis productos</ion-title>
-    <img  id="esquina_t_r" src = "assets/img/lechuga_agregar.svg"/>
+    <img  id="esquina_t_r" src = "assets/img/lechuga_agregar.svg" [routerLink]="['/menu/new-producto']"/>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-searchbar debounce="100" style="Background:#AAD482;" placeholder="Buscar..."></ion-searchbar>
-
-  <ion-list>
-    <ion-item *ngFor="let producto of productos" [routerLink]="['/productos', producto.id]">
-      <ion-card class="card">
-        <ion-card-header class="contCard">
-          <ion-img [src]="producto.imageURL" class="container"></ion-img>
-        </ion-card-header>
-        <ion-card-content>
-        <div id="columnas">
-          <li>{{producto.title}} {{producto.calificacion}} <ion-icon name="star"></ion-icon></li>
-          <li>Cantidad: {{producto.cantidad}} {{producto.unidadesRef}}</li>
-        </div>
-        </ion-card-content>
-      </ion-card>
-    </ion-item>
-  </ion-list>
+  <div style="margin-bottom: 30px;">
+    <ion-list *ngIf="productos && productos.length>0; else noProductos">
+      <ion-item *ngFor="let producto of productos" [routerLink]="['/menu/productos', producto.id]">
+        <ion-card class="card">
+          <ion-card-header class="contCard">
+            <ion-img [src]="producto.imageURL" class="container"></ion-img>
+          </ion-card-header>
+          <ion-card-content>
+          <div id="columnas">
+            <li>{{producto.title}}  {{calific[producto.id-1]}} <ion-icon name="star"></ion-icon></li>
+            <li>Cantidad: {{producto.cantidad}} {{producto.unidadesRef}}</li>
+          </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+  </div>
+  <ng-template #noProductos>
+    <div class="row1">
+      <h3 style="font-family: 'Arial';font-size:light; font-style: oblique;">No tienes productos aún</h3>
+      <h3 style="font-family: 'Arial';font-size:light; font-style: oblique;">Agrega uno</h3>
+      <img  id="img_cent_trans" src = "assets/img/lechuga_agregar.svg"/>
+    </div>
+  </ng-template>
 </ion-content>

@@ -1,5 +1,7 @@
 {
   "name": "BridgeSD",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

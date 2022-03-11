@@ -6,7 +6,7 @@ import { NoIngresadoGuard } from './no-ingresado.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'productos',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
@@ -79,15 +79,18 @@ const routes: Routes = [
   },
   {
     path: 'solicitudes-espera',
-    loadChildren: () => import('./solicitudes-espera/solicitudes-espera.module').then( m => m.SolicitudesEsperaPageModule)
+    loadChildren: () => import('./solicitudes-espera/solicitudes-espera.module').then( m => m.SolicitudesEsperaPageModule),
+    canActivate: [IngresadoGuard]
   },
   {
     path: 'envios-programados',
-    loadChildren: () => import('./envios-programados/envios-programados.module').then( m => m.EnviosProgramadosPageModule)
+    loadChildren: () => import('./envios-programados/envios-programados.module').then( m => m.EnviosProgramadosPageModule),
+    canActivate: [IngresadoGuard]
   },
   {
     path: 'entregas-envios',
-    loadChildren: () => import('./entregas-envios/entregas-envios.module').then( m => m.EntregasEnviosPageModule)
+    loadChildren: () => import('./entregas-envios/entregas-envios.module').then( m => m.EntregasEnviosPageModule),
+    canActivate: [IngresadoGuard]
   }
 ];
 
