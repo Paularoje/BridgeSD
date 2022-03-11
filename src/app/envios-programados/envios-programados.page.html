@@ -1,0 +1,112 @@
+<ion-header  class="center">
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button><ion-icon name="person-circle-outline"></ion-icon></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="espacio5">Envios Programados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list class="quitar">
+
+  <div class="space1 ofo">
+      <h3 class="info3">Confirmada el 18/Feb/22 a las 3:45 pm</h3>
+  </div>
+
+  <ion-card class="final" *ngFor="let oferta of ofertas" [routerLink]="['/ofertas', oferta.id]">
+
+    <div class="space2 tablita">
+
+      <div class="space1">
+        <h3 class="info8">Fecha de inicio: 18/Feb/22 a las 3:45 pm</h3>
+      </div>
+
+      <div class="space1"> 
+
+        <div class="space2">
+          <ion-avatar name="person-circle-outline" class="imgfot1 arr">
+            <ion-img [src]="oferta.imageUrl1">
+            </ion-img>
+          </ion-avatar>
+        </div>
+
+        <div class="space2 tunning1">
+          {{ oferta.final }} {{oferta.producto}}
+        </div>
+
+        <div class="space2">
+          <ion-avatar name="person-circle-outline" class="imgfot1 arr">
+            <ion-img [src]="oferta.imageUrl2">
+            </ion-img>
+          </ion-avatar>
+        </div>
+
+      </div>
+
+      <div class="space1"> 
+
+        <div class="space2 tunning2">
+          <div class="space1">
+            {{oferta.rol1}}
+          </div>
+          <div class="space1"> 
+            {{oferta.name1}}
+          </div>
+        </div>
+
+        <div class="space2 tunning3">
+          <div class="space1 right">
+            {{oferta.rol2}}
+          </div>
+          <div class="space1 right"> 
+            {{oferta.name2}}
+          </div>
+        </div>
+      </div>
+
+      <div class="space1">
+        <h3 class="info10">Valor Cotizado: $120.000</h3>
+      </div>
+    </div>
+
+    <div class="space1 ofo">
+      <h3 class="info3">Estado: Esperando a la fecha indicada para iniciar el proceso de entrega</h3>
+  </div>
+
+</ion-card>
+
+</ion-list>
+
+
+
+<div>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom" color="success">
+
+        <ion-tab-button tab="inicio" [routerLink]="['/menu/inicio-transportador']">
+          <ion-icon name="home"></ion-icon>
+          <ion-label>Inicio</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="en_espera" [routerLink]="['/solicitudes-espera']">
+          <ion-icon name="hourglass-outline"></ion-icon>
+          <ion-label>En espera</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="programados" style="background-color:rgb(118, 189, 118)">
+          <ion-icon name="calendar-outline"></ion-icon>
+          <ion-label>Programados</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="entregas" [routerLink]="['/entregas-envios']">
+          <ion-icon name="checkmark-done-outline"></ion-icon>
+          <ion-label>Entregas</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </div>
+
+
+</ion-content>

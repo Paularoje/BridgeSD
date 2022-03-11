@@ -1,0 +1,204 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button><ion-icon name="person-circle-outline"></ion-icon></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="espacio5">Solicitudes en Espera</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="space2 holi">
+
+    <div class="space1">
+      <h1 class="acepta">Aceptadas</h1>
+    </div>
+
+    <div class="space1">
+      <h3 class="info1">Las solicitudes que sean aceptadas pasaran a la seccion de Programados.
+      </h3>
+    </div>
+
+  </div>
+
+  <ion-list class="quitar">
+
+  <div class="space1 ofo">
+      <h3 class="info3">Aceptada el 18/Feb/22 a las 3:45 pm</h3>
+  </div>
+
+  <ion-card class="final" *ngFor="let oferta of ofertas" [routerLink]="['/ofertas', oferta.id]">
+
+    <div class="space2 tablita">
+
+      <div class="space1">
+        <h3 class="info8">Fecha de inicio: 18/Feb/22 a las 3:45 pm</h3>
+      </div>
+
+      <div class="space1"> 
+
+        <div class="space2">
+          <ion-avatar name="person-circle-outline" class="imgfot1 arr">
+            <ion-img [src]="oferta.imageUrl1">
+            </ion-img>
+          </ion-avatar>
+        </div>
+
+        <div class="space2 tunning1">
+          {{ oferta.final }} {{oferta.producto}}
+        </div>
+
+        <div class="space2">
+          <ion-avatar name="person-circle-outline" class="imgfot1 arr">
+            <ion-img [src]="oferta.imageUrl2">
+            </ion-img>
+          </ion-avatar>
+        </div>
+
+      </div>
+
+      <div class="space1"> 
+
+        <div class="space2 tunning2">
+          <div class="space1">
+            {{oferta.rol1}}
+          </div>
+          <div class="space1"> 
+            {{oferta.name1}}
+          </div>
+        </div>
+
+        <div class="space2 tunning3">
+          <div class="space1 right">
+            {{oferta.rol2}}
+          </div>
+          <div class="space1 right"> 
+            {{oferta.name2}}
+          </div>
+        </div>
+      </div>
+
+      <div class="space1">
+        <h3 class="info10">Valor Cotizado: $120.000</h3>
+      </div>
+    </div>
+</ion-card>
+
+</ion-list>
+
+
+
+
+  <div class="space2 holi">
+
+    <div class="space1">
+      <h1 class="acepta">Enviadas</h1>
+    </div>
+
+    <div class="space1">
+      <h1 class="new">Nueva</h1>
+    </div>
+
+    <div class="space1 ola">
+      <div class="space2 info">
+        <h3 class="info3">Enviada el 20/Ene/22 a las 9:00 am</h3>
+      </div>
+
+      <div class="space2 info2">
+        <h3 class="info4">Vence en: 14H : 34 Min</h3>
+      </div>
+    </div>
+
+  </div>
+
+  <ion-list>
+  <ion-card class="final" *ngFor="let oferta of ofertas" [routerLink]="['/ofertas', oferta.id]">
+
+    <div class="space2 tablita2">
+
+      <div class="space1">
+        <h3 class="info8">Fecha de inicio: 20/Ene/22 a las 9:00 am</h3>
+      </div>
+
+      <div class="space1"> 
+
+        <div class="space2">
+          <ion-avatar name="person-circle-outline" class="imgfot1 arr">
+            <ion-img src="https://img.fotocommunity.com/perfil-campesino-d8d0b847-ccdc-4063-95fc-1eea6240874d.jpg?height=1000">
+            </ion-img>
+          </ion-avatar>
+        </div>
+
+        <div class="space2 tunning1">
+          50 Manojos Banano Bocadillo
+        </div>
+
+        <div class="space2">
+          <ion-avatar name="person-circle-outline" class="imgfot1 arr">
+            <ion-img src="https://media.gettyimages.com/photos/actress-maisie-richardsonsellers-from-cws-legends-of-tomorrow-poses-picture-id821805582?s=612x612">
+            </ion-img>
+          </ion-avatar>
+        </div>
+
+      </div>
+
+      <div class="space1"> 
+
+        <div class="space2 tunning2">
+          <div class="space1">
+            Vendedor:
+          </div>
+          <div class="space1"> 
+            Jairo Gomez
+          </div>
+        </div>
+
+        <div class="space2 tunning3">
+          <div class="space1 right">
+            Comprador:
+          </div>
+          <div class="space1 right"> 
+            Marta Peña
+          </div>
+        </div>
+      </div>
+
+      <div class="space1">
+        <h3 class="info10">Valor Cotizado: $100.000</h3>
+      </div>
+    </div>
+</ion-card>
+
+</ion-list>
+
+<div>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom" color="success">
+
+        <ion-tab-button tab="inicio" [routerLink]="['/menu/inicio-transportador']">
+          <ion-icon name="home"></ion-icon>
+          <ion-label>Inicio</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="en_espera" style="background-color:rgb(118, 189, 118)">
+          <ion-icon name="hourglass-outline"></ion-icon>
+          <ion-label>En espera</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="programados" [routerLink]="['/envios-programados']">
+          <ion-icon name="calendar-outline"></ion-icon>
+          <ion-label>Programados</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="entregas" [routerLink]="['/entregas-envios']">
+          <ion-icon name="checkmark-done-outline"></ion-icon>
+          <ion-label>Entregas</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </div>
+
+
+</ion-content>
+

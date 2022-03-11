@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button><ion-icon name="person-circle-outline"></ion-icon></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="espacio5">Entregas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="info1">
+    <h3 style="font-family: 'Arial';font-size:light; font-style: oblique;">No tienes entregas completadas aún</h3>
+    <img src = "assets/img/lechuga_agregar.svg" width="100px"/>
+  </div>
+
+
+  <div>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom" color="success">
+
+        <ion-tab-button tab="inicio" [routerLink]="['/menu/inicio-transportador']">
+          <ion-icon name="home"></ion-icon>
+          <ion-label>Inicio</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="en_espera" [routerLink]="['/solicitudes-espera']">
+          <ion-icon name="hourglass-outline"></ion-icon>
+          <ion-label>En espera</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="programados" [routerLink]="['/envios-programados']">
+          <ion-icon name="calendar-outline"></ion-icon>
+          <ion-label>Programados</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="entregas" style="background-color:rgb(118, 189, 118)">
+          <ion-icon name="checkmark-done-outline"></ion-icon>
+          <ion-label>Entregas</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </div>
+
+
+</ion-content>
+

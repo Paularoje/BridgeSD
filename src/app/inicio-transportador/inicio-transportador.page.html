@@ -9,60 +9,85 @@
 
 <ion-content>
 
-  <img src="assets/img/mapa.svg">
+  <img src="assets/img/mapa.svg" id="imagen">
   <ion-fab class="final2" horizontal="center" [routerLink]="['/ofertas']" slot="fixed">
     <ion-fab-button class="boton-up1">
       <ion-icon class="boton-up" name="arrow-up-circle"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 
-  <ion-list>
+<ion-list class="quitar">
+
   <ion-card class="final" *ngFor="let oferta of ofertas" [routerLink]="['/ofertas', oferta.id]">
-    <ion-item class="margin1">
-      <ion-avatar name="person-circle-outline" class="imgfot1 arr">
-        <ion-img [src]="oferta.imageUrl1">
-        </ion-img>
-      </ion-avatar>
-      <ion-avatar name="person-circle-outline" class="imgfot baj" slot="end">
-        <ion-img [src]="oferta.imageUrl2">
-        </ion-img>
-      </ion-avatar>
-      <ion-label>
+
+    <div class="space2 tablita">
+
+
+      <div class="space1"> 
+
+        <div class="space2 lola">
+          <ion-avatar name="person-circle-outline">
+            <ion-img class="lola" [src]="oferta.imageUrl1">
+            </ion-img>
+          </ion-avatar>
+        </div>
+
+        <div class="space2 data">
+
+          <div class="space2 tunning2">
+          <div class="space1">
+            {{oferta.rol1}}
+          </div>
+          <div class="space1"> 
+            {{oferta.name1}}
+          </div>
+        </div>
+
+        <div class="space2 tunning3">
+          <div class="space1 right">
+            {{oferta.rol2}}
+          </div>
+          <div class="space1 right"> 
+            {{oferta.name2}}
+          </div>
+        </div>
+
+        </div>
+
+        <div class="space2 lola">
+          <ion-avatar name="person-circle-outline">
+            <ion-img class="lola" [src]="oferta.imageUrl2">
+            </ion-img>
+          </ion-avatar>
+        </div>
+
+      </div>
+
+      <div class="space1"> 
+
+        <div class="space2 tunning4">
+          <div class="space1">
+            {{oferta.from}}
+          </div>
+          <div class="space1"> 
+            {{oferta.desde}}
+          </div>
+        </div>
+
+        <div class="space2 tunning5">
+          <div class="space1 right">
+            {{oferta.to}}
+          </div>
+          <div class="space1 right"> 
+            {{oferta.hasta}}
+          </div>
+        </div>
+      </div>
+
       <div class="space1">
-        {{oferta.rol1}}
-        <br>
-        {{oferta.name1}}
+        <h3 class="info10">{{oferta.final}}{{oferta.producto}}</h3>
       </div>
-      <br>
-      <div class="space2">
-        {{oferta.rol2}}
-        <br>
-        {{oferta.name2}}
-      </div>
-      <br>
-      </ion-label>
-      </ion-item>
-      <ion-item>
-      <ion-label>
-      <div class="space3">
-        <div class="space4">
-        {{oferta.from}}
-        <br>
-        {{oferta.desde}}
-        </div>
-        <div class="space4">
-        {{oferta.to}}
-        <br>
-        {{oferta.hasta}}
-        </div>
-      </div>
-      </ion-label>
-      </ion-item>
-  <ion-card-content class="mejorada">
-    <div>
-        {{oferta.final}} {{oferta.producto}}
-      </div>
-  </ion-card-content>
+    </div>
 </ion-card>
 
 </ion-list>
@@ -76,17 +101,17 @@
           <ion-label>Inicio</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="en_espera" [routerLink]="['/solicitudes-vendedor']">
+        <ion-tab-button tab="en_espera" [routerLink]="['/solicitudes-espera']">
           <ion-icon name="hourglass-outline"></ion-icon>
           <ion-label>En espera</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="programados" [routerLink]="['/despachos-vendedor']">
+        <ion-tab-button tab="programados" [routerLink]="['/envios-programados']">
           <ion-icon name="calendar-outline"></ion-icon>
           <ion-label>Programados</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="entregas" [routerLink]="['/despachos-vendedor']">
+        <ion-tab-button tab="entregas" [routerLink]="['/entregas-envios']">
           <ion-icon name="checkmark-done-outline"></ion-icon>
           <ion-label>Entregas</ion-label>
         </ion-tab-button>

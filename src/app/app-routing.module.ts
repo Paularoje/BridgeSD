@@ -76,6 +76,18 @@ const routes: Routes = [
       }
     ],
     canActivate: [IngresadoGuard]
+  },
+  {
+    path: 'solicitudes-espera',
+    loadChildren: () => import('./solicitudes-espera/solicitudes-espera.module').then( m => m.SolicitudesEsperaPageModule)
+  },
+  {
+    path: 'envios-programados',
+    loadChildren: () => import('./envios-programados/envios-programados.module').then( m => m.EnviosProgramadosPageModule)
+  },
+  {
+    path: 'entregas-envios',
+    loadChildren: () => import('./entregas-envios/entregas-envios.module').then( m => m.EntregasEnviosPageModule)
   }
 ];
 
