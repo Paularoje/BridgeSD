@@ -91,7 +91,25 @@ const routes: Routes = [
     path: 'entregas-envios',
     loadChildren: () => import('./entregas-envios/entregas-envios.module').then( m => m.EntregasEnviosPageModule),
     canActivate: [IngresadoGuard]
-  }
+  },
+  {
+    path: 'inicio-comprador',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./inicio-comprador/inicio-comprador.module').then( m => m.InicioCompradorPageModule)
+      },
+      {
+        path: ':productoId',
+        loadChildren: () => import('./inicio-comprador/detalles/detalles.module').then( m => m.DetallesPageModule)
+      }
+    ],
+    canActivate: [IngresadoGuard]
+  },
+  {
+    path: 'noticias',
+    loadChildren: () => import('./noticias/noticias.module').then( m => m.NoticiasPageModule)
+  },
 ];
 
 @NgModule({

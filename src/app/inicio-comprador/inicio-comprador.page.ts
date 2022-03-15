@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
+import { CatalogoService } from './catalogo.service';
 import * as moment from 'moment';
 
 @Component({
@@ -22,7 +23,7 @@ export class InicioCompradorPage implements OnInit {
     texto: string;
   };
 
-  constructor(public toastController: ToastController) {
+  constructor(public toastController: ToastController, private productoService: CatalogoService) {
     moment.locale('es-col');
     this.fecha = moment().format();
     this.cargarEntradas();
@@ -89,6 +90,30 @@ export class InicioCompradorPage implements OnInit {
     this.entradas.push(entrada);
     localStorage.setItem('entradas', JSON.stringify(this.entradas));
   }
+
+  
+  autocomplete: { input: string };
+
+  productos=[];
+  calific=[];
+
+
+  updateSearchResults() {
+     console.log(this.autocomplete.input);    //search input will display
+  }
+
   ngOnInit() {
+    this.productos=this.productoService.getProductos();
+    this.calificacion();
+  }
+  ionViewWillEnter(){
+    this.productos=this.productoService.getProductos();
+    this.calificacion();
+  }
+  calificacion(){
+    const prod=this.productoService.getProductos();
+    for (let i=0; i<prod.length; i++) {
+      this.calific[i]=this.productoService.getCalificacion(prod[i].id);
+    }
   }
 }

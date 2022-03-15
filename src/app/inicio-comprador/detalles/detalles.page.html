@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu/inicio-comprador"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="espacio5">Detalles del poducto</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="deleteProducto()">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col style="margin-top: 5px; margin-left: 20px; margin-bottom: 5px; font-size: 21px;">
+        {{calific}} <ion-icon name="star"></ion-icon>
+      </ion-col>
+      <ion-col style="margin-top: 5px; margin-bottom: 5px; font-size: 21px;">
+        {{producto.title}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-img [src]="producto.imageURL"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row class="info">
+      <ion-col style="margin-left: 30px;">
+        <h3 class="textCatalago0">{{producto.descripcion}}</h3>
+        <h3 class="textCatalago1">Cantidad disponible:</h3>
+        <h3 class="textCatalago2">{{producto.cantidad}} {{producto.unidadesRef}}</h3>
+      </ion-col>
+      <ion-col>
+        <img style="margin-top: 30px; margin-left: 50px;" src = "assets/icon/bocina.png"/>
+        <h3 class="textCatalago0" style="text-align: center;">Pulsa para escuchar \n  descripción</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row class="info">
+      <ion-col style="margin-left: 30px;">
+        <h3 class="textCatalago1">Precio:</h3>
+        <h3 class="textCatalago2">${{producto.precio}}</h3>
+
+        <h3 class="textCatalago1">Precio sugerido:</h3>
+        <h3 class="textCatalago2">${{producto.precioSugerido}}</h3>
+      </ion-col>
+      <ion-col style="margin-top: 60px; text-align: center;">
+        <ion-button color="dark" [routerLink]="['/registro']">Editar</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row style="text-align: center;">
+      <ion-col>
+        <h2 class="textCatalago2" style="color: white; margin:auto; margin-top: 30px; margin-bottom: 20px;">Comentarios</h2>
+        <ion-textarea disabled style="margin: auto; width: 360px;">
+          <ion-list *ngIf="producto.comments && producto.comments.length>0; else noComments">
+            <ion-item *ngFor="let comment of producto.comments; let indexOfelement=index;">
+              {{comment}} <ion-icon slot="end" name="star"></ion-icon><ion-text slot="end">{{producto.starts[indexOfelement]}}</ion-text>
+            </ion-item>
+          </ion-list>
+       </ion-textarea>
+        <ng-template #noComments>
+          <ion-text>
+            <p class="ion-text-center">No hay comentarios aún</p>
+          </ion-text>
+        </ng-template>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

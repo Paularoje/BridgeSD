@@ -1,3 +1,55 @@
-ion-title{
-  text-align:center;
+#esquina_t_r{
+  position: absolute;
+  right: 4px;
+  bottom: 2px;
+}
+
+.espacio5{
+  margin: 0px;
+  padding: 0px;
+  font-size: 25px;
+  text-align: center;
+  margin-right: 60px;
+}
+.card {
+  border-radius : 9px;
+  background: #311C13;
+  color: #ffffff;
+}
+
+.contCard {
+  border-radius : 9px;
+  background: #ffffff;
+}
+
+.container {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.container > .crop {
+  position:absolute;
+  left: -100%;
+  right: -100%;
+  top: -100%;
+  bottom: -100%;
+  margin: auto;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+#columnas{
+  column-count:2;
+  column-gap:20px;
+  list-style: none;
+  margin-top: 5px;
+}
+
+.textCatalago1{
+  color: #311C13;
+  font-size: 18px;
 }
