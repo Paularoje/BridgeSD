@@ -68,20 +68,25 @@
 
   <ion-tabs *ngIf="infoUser.tipoUser==='transportador'">
     <ion-tab-bar slot="bottom" color="success">
-      <ion-tab-button tab="solicitudes">
-        <ion-icon name="reader"></ion-icon>
-        <ion-label>solicitudes</ion-label>
-      </ion-tab-button>
 
-      <ion-tab-button tab="inicio">
+      <ion-tab-button tab="inicio" [routerLink]="['/menu/inicio-transportador']">
         <ion-icon name="home"></ion-icon>
         <ion-label>Inicio</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button tab="entregas">
-        <ion-icon name="calendar"></ion-icon>
+      <ion-tab-button tab="en_espera" [routerLink]="['/solicitudes-espera']">
+        <ion-icon name="hourglass-outline"></ion-icon>
+        <ion-label>En espera</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="programados" [routerLink]="['/envios-programados']">
+        <ion-icon name="calendar-outline"></ion-icon>
+        <ion-label>Programados</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="entregas" [routerLink]="['/entregas-envios']">
+        <ion-icon name="checkmark-done-outline"></ion-icon>
         <ion-label>Entregas</ion-label>
-        <!-- <ion-badge>6</ion-badge> -->
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
@@ -90,7 +95,7 @@
     <ion-tab-bar slot="bottom" color="success">
       <ion-tab-button tab="solicitudes">
         <ion-icon name="reader"></ion-icon>
-        <ion-label>solicitudes</ion-label>
+        <ion-label>Pedidos</ion-label>
       </ion-tab-button>
 
       <ion-tab-button tab="inicio">

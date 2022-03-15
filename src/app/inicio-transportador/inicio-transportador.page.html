@@ -23,7 +23,7 @@
     <div class="space2 tablita">
 
 
-      <div class="space1"> 
+      <div class="space1">
 
         <div class="space2 lola">
           <ion-avatar name="person-circle-outline">
@@ -38,7 +38,7 @@
           <div class="space1">
             {{oferta.rol1}}
           </div>
-          <div class="space1"> 
+          <div class="space1">
             {{oferta.name1}}
           </div>
         </div>
@@ -47,7 +47,7 @@
           <div class="space1 right">
             {{oferta.rol2}}
           </div>
-          <div class="space1 right"> 
+          <div class="space1 right">
             {{oferta.name2}}
           </div>
         </div>
@@ -63,13 +63,13 @@
 
       </div>
 
-      <div class="space1"> 
+      <div class="space1">
 
         <div class="space2 tunning4">
           <div class="space1">
             {{oferta.from}}
           </div>
-          <div class="space1"> 
+          <div class="space1">
             {{oferta.desde}}
           </div>
         </div>
@@ -78,7 +78,7 @@
           <div class="space1 right">
             {{oferta.to}}
           </div>
-          <div class="space1 right"> 
+          <div class="space1 right">
             {{oferta.hasta}}
           </div>
         </div>
@@ -91,33 +91,5 @@
 </ion-card>
 
 </ion-list>
-
-<div>
-    <ion-tabs>
-      <ion-tab-bar slot="bottom" color="success">
-
-        <ion-tab-button tab="inicio" style="background-color:rgb(118, 189, 118)">
-          <ion-icon name="home"></ion-icon>
-          <ion-label>Inicio</ion-label>
-        </ion-tab-button>
-
-        <ion-tab-button tab="en_espera" [routerLink]="['/solicitudes-espera']">
-          <ion-icon name="hourglass-outline"></ion-icon>
-          <ion-label>En espera</ion-label>
-        </ion-tab-button>
-
-        <ion-tab-button tab="programados" [routerLink]="['/envios-programados']">
-          <ion-icon name="calendar-outline"></ion-icon>
-          <ion-label>Programados</ion-label>
-        </ion-tab-button>
-
-        <ion-tab-button tab="entregas" [routerLink]="['/entregas-envios']">
-          <ion-icon name="checkmark-done-outline"></ion-icon>
-          <ion-label>Entregas</ion-label>
-        </ion-tab-button>
-      </ion-tab-bar>
-    </ion-tabs>
-  </div>
-
 
 </ion-content>
